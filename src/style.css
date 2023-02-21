@@ -527,7 +527,7 @@ display: none;
         text-align: left;
     }
 
-    .closeModal{
+    .closeModal {
         display: none;
     }
 
@@ -535,15 +535,16 @@ display: none;
     .divContent div {
         text-align: left;
     }
+
     /*Elementos Login*/
-    .divAll{
+    .divAll {
         height: 70%;
         width: 90%;
         max-width: 100rem;
 
 
     }
-    .divImage{
+    .divImage {
         height: 100%;
         width: 50%;
         display:block;
@@ -552,7 +553,7 @@ display: none;
        
     }
 
-    .login{
+    .login {
         margin-left:0%;
         margin-top: 0%;
         margin-bottom: 0%;
@@ -575,7 +576,7 @@ display: none;
         display: none;
     }
 
-    .hide{
+    .hide {
         width: 15%;
         padding: 2rem;
         margin: 2rem;
@@ -599,12 +600,12 @@ display: none;
         border: 0;
     }
 
-    .hide button:hover{
+    .hide button:hover {
         color: white;
         background-color: var(--main-color);
     }
 
-    .containerAll{
+    .containerAll {
         display: flex;
         flex-direction: row;
     }
@@ -614,6 +615,15 @@ display: none;
         color: #454545;
         margin: 0.2rem 0;
         padding: 1rem;
+    }
+
+    
+    footer p {
+        font-size: 1.5rem;
+    }
+
+    footer a {
+        font-size: 1.5rem;
     }
 
     .info p {
@@ -626,11 +636,4 @@ display: none;
         font-size: 2.8rem;
     }
 
-    footer p{
-        font-size: 1.5rem;
-    }
-
-    footer a{
-        font-size: 1.5rem;
-    }
 }

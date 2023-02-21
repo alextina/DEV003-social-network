@@ -74,17 +74,9 @@ export const Home = (onNavigate) => {
         minute: '2-digit',
       });
 
-      let likeIcon = '';
-      if (inputPosts.like.includes(currentUserUid)) {
-        likeIcon = 'fa-solid';
-      } else {
-        likeIcon = 'fa-regular';
-      }
-
+      const likeIcon = inputPosts.like.includes(currentUserUid) ? 'fa-solid' : 'fa-regular';
       let userName = inputPosts.user;
-      if (userName === null) {
-        userName = inputPosts.userEmail;
-      }
+      userName = userName === null ? inputPosts.userEmail : inputPosts.user;
 
       if (currentUserUid === postUserUid) {
         html += `
