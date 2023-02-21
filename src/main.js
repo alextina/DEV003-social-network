@@ -10,6 +10,7 @@ const auth = getAuth(firebase);
 // ruteado
 const root = document.getElementById('root');
 const routes = {
+  '/index.html': Welcome,
   '/': Welcome,
   '/login': Login,
   '/signup': Signup,
