@@ -17,9 +17,10 @@ export const savePost = (post) => {
   addDoc(collectionPost, {
     post,
     userUid: userId.uid,
-    user: userId.displayName,
+    userName: userId.displayName,
     userEmail: userId.email,
-    createdAt: serverTimestamp(),
+    createdAt: new Date(),
+    // createdAt: serverTimestamp(),
     // Time stamp, ordenar posts
     like: [],
   });

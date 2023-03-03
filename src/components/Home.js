@@ -19,7 +19,7 @@ export const Home = (onNavigate) => {
   const formNewPost = document.createElement('form');
   const inputPost = document.createElement('input');
   const buttonPost = document.createElement('button');
-  const divAllPost = document.createElement('div');
+  const sectionAllPosts = document.createElement('section');
 
   home.setAttribute('class', 'home');
   menuBg.setAttribute('class', 'menuBg');
@@ -34,8 +34,8 @@ export const Home = (onNavigate) => {
   containerAll2.setAttribute('class', 'containerAll2');
   formNewPost.setAttribute('id', 'formNewPost');
   formNewPost.setAttribute('class', 'containerNewPost home');
-  divAllPost.setAttribute('id', 'allPost');
-  divAllPost.setAttribute('class', 'containerAllPost home');
+  sectionAllPosts.setAttribute('id', 'allPost');
+  sectionAllPosts.setAttribute('class', 'containerAllPost home');
   inputPost.setAttribute('placeholder', 'Comparte tu experiencia aqui');
   inputPost.setAttribute('id', 'inputPost');
   buttonPost.setAttribute('id', 'buttonPost');
@@ -74,21 +74,13 @@ export const Home = (onNavigate) => {
         minute: '2-digit',
       });
 
-      let likeIcon = '';
-      if (inputPosts.like.includes(currentUserUid)) {
-        likeIcon = 'fa-solid';
-      } else {
-        likeIcon = 'fa-regular';
-      }
-
-      let userName = inputPosts.user;
-      if (userName === null) {
-        userName = inputPosts.userEmail;
-      }
+      const likeIcon = inputPosts.like.includes(currentUserUid) ? 'fa-solid' : 'fa-regular';
+      let userName = inputPosts.userName;
+      userName = userName === null ? inputPosts.userEmail : inputPosts.userName;
 
       if (currentUserUid === postUserUid) {
         html += `
-        <div class = 'containerPost home'>
+        <article class = 'containerPost home'>
           <div>
           <div class="info">   
             <h3>${userName}</h3>
@@ -101,11 +93,11 @@ export const Home = (onNavigate) => {
           </div>
           <p>${inputPosts.post}</p>
           <button data-id="${doc.id}" class="buttonLike"><p data-id='${doc.id}'>${inputPosts.like.length}</p><i class='${likeIcon} fa-heart'></i></button>
-        </div>
+        </article>
   `;
       } else {
         html += `
-        <div class = 'containerPost home'>
+        <article class = 'containerPost home'>
          <div class="info">   
             <h3>${userName}</h3>
             <p>${formattedDate}</p>
@@ -113,16 +105,16 @@ export const Home = (onNavigate) => {
           <p>${inputPosts.post}</p>
           <button data-id="${doc.id}" class="buttonLike"><p data-id='${doc.id}'>${inputPosts.like.length}</p><i class='${likeIcon} fa-heart'></i></button>
           
-        </div>
+        </article>
       `;
       }
     });
 
     // la fx del botón para eliminar post
-    divAllPost.innerHTML = html;
+    sectionAllPosts.innerHTML = html;
 
     // funcionalidad del botón like
-    const btnLikes = divAllPost.querySelectorAll('.buttonLike');
+    const btnLikes = sectionAllPosts.querySelectorAll('.buttonLike');
     btnLikes.forEach((btnLike) => {
       btnLike.addEventListener('click', () => {
         const likedButton = btnLike.dataset.id;
@@ -141,7 +133,7 @@ export const Home = (onNavigate) => {
       });
     });
 
-    const btnsDelete = divAllPost.querySelectorAll('.btn-delete');
+    const btnsDelete = sectionAllPosts.querySelectorAll('.btn-delete');
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
         /* eslint-disable no-alert, no-restricted-globals */
@@ -156,7 +148,7 @@ export const Home = (onNavigate) => {
 
     // la fx del botón para editar post
     // la fx se aplica a c/u de los botones de los post
-    const btnsEdit = divAllPost.querySelectorAll('.btn-edit');
+    const btnsEdit = sectionAllPosts.querySelectorAll('.btn-edit');
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', async (e) => { // se escucha la promesa del e...
         const doc = await getPost(e.target.dataset.id); // se trae la publicacion segun su id
@@ -213,10 +205,10 @@ export const Home = (onNavigate) => {
   divIconMenu.append(iconMenu);
   header.append(divIconMenu, title);
   nav.append(buttonHome, buttonProfile, buttonLogout);
-  containerAll2.append(formNewPost, divAllPost);
+  containerAll2.append(formNewPost, sectionAllPosts);
   containerAll.append(nav, containerAll2);
 
-  // divAllPost.append(divPost);
+  // sectionAllPosts.append(divPost);
   home.append(menuBg, header, containerAll);
   return home;
 };

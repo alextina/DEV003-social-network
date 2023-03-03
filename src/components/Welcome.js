@@ -1,16 +1,15 @@
 import logoBlanco from '../media/logo-blanco-fems-viajando-juntas.png';
 import logoColores from '../media/logo-fems-viajando-juntas.png';
-// import logoGoogle from '../media/logo-google.png';
 import background1 from '../media/background-1.jpg';
 import { loginWithGoogle } from '../firebase/auth.js';
 import { saveUser } from '../firebase/firestore';
-import googleImg1 from '../media/btn_google_signin_light_normal_web@2x.png';
-import googleImg2 from '../media/btn_google_signin_light_pressed_web@2x.png';
+import googleImg1 from '../media/btn_google_signin_dark_normal_web.png';
+import googleImg2 from '../media/btn_google_signin_dark_pressed_web.png';
 
 export const Welcome = (onNavigate) => {
-  const div = document.createElement('div');
+  const sectionContainer = document.createElement('section');
   const logo = document.createElement('img');
-  const div2 = document.createElement('div');
+  const sectionInfo = document.createElement('section');
   const logoColor = document.createElement('img');
   const buttonLogin = document.createElement('button');
   const buttonSignup = document.createElement('button');
@@ -22,8 +21,8 @@ export const Welcome = (onNavigate) => {
   imgGoogle.onmouseover = () => {
     imgGoogle.src = googleImg2;
   };
-  div.setAttribute('class', 'containerWelcome');
-  div2.setAttribute('class', 'div2');
+  sectionContainer.setAttribute('class', 'containerWelcome');
+  sectionInfo.setAttribute('class', 'sectionInfo');
   logo.setAttribute('src', logoBlanco);
   logo.setAttribute('alt', 'logo-fems');
   logo.setAttribute('class', 'logo-fems');
@@ -34,7 +33,7 @@ export const Welcome = (onNavigate) => {
   buttonGoogle.setAttribute('class', 'googleButton');
   imgGoogle.setAttribute('src', googleImg1);
 
-  div2.append(logoColor, buttonLogin, buttonSignup, buttonGoogle);
+  sectionInfo.append(logoColor, buttonLogin, buttonSignup, buttonGoogle);
 
   // Se crea el contenido del botón y se le agrega funcionalidad que envía a login
   buttonLogin.textContent = 'Iniciar sesión';
@@ -64,9 +63,9 @@ export const Welcome = (onNavigate) => {
   });
 
   // MODAL
-  const descriptionContainerModal = document.createElement('div');
-  const descriptionContentModal = document.createElement('div');
-  const closeModal = document.createElement('div');
+  const descriptionContainerModal = document.createElement('sectionContainer');
+  const descriptionContentModal = document.createElement('sectionContainer');
+  const closeModal = document.createElement('sectionContainer');
   const iconModal = document.createElement('i');
 
   descriptionContainerModal.setAttribute('class', 'modalContainer');
@@ -94,6 +93,6 @@ export const Welcome = (onNavigate) => {
   document.getElementById('root').style.backgroundSize = 'cover';
   document.getElementById('root').style.backgroundPositionX = '35%';
 
-  div.append(logo, descriptionContainerModal, div2);
-  return div;
+  sectionContainer.append(logo, descriptionContainerModal, sectionInfo);
+  return sectionContainer;
 };
