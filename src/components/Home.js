@@ -75,8 +75,8 @@ export const Home = (onNavigate) => {
       });
 
       const likeIcon = inputPosts.like.includes(currentUserUid) ? 'fa-solid' : 'fa-regular';
-      let userName = inputPosts.user;
-      userName = userName === null ? inputPosts.userEmail : inputPosts.user;
+      let userName = inputPosts.userName;
+      userName = userName === null ? inputPosts.userEmail : inputPosts.userName;
 
       if (currentUserUid === postUserUid) {
         html += `
