@@ -1,0 +1,38 @@
+[debug] [2023-03-03T02:04:13.543Z] ----------------------------------------------------------------------
+[debug] [2023-03-03T02:04:13.546Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\acast\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js hosting:channel:deploy preview_name
+[debug] [2023-03-03T02:04:13.546Z] CLI Version:   11.23.1
+[debug] [2023-03-03T02:04:13.547Z] Platform:      win32
+[debug] [2023-03-03T02:04:13.547Z] Node Version:  v19.3.0
+[debug] [2023-03-03T02:04:13.547Z] Time:          Thu Mar 02 2023 21:04:13 GMT-0500 (hora estándar de Perú)
+[debug] [2023-03-03T02:04:13.547Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-03-03T02:04:13.552Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-03-03T02:04:13.668Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-03T02:04:13.668Z] > authorizing via signed-in user (castilloavilaa@gmail.com)
+[debug] [2023-03-03T02:04:13.668Z] [iam] checking project fems-social-network-2023 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-03-03T02:04:13.669Z] > refreshing access token with scopes: []
+[debug] [2023-03-03T02:04:13.670Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-03-03T02:04:13.670Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-03-03T02:04:14.231Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-03-03T02:04:14.231Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-03-03T02:04:14.239Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/fems-social-network-2023:testIamPermissions [none]
+[debug] [2023-03-03T02:04:14.239Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/fems-social-network-2023:testIamPermissions x-goog-quota-user=projects/fems-social-network-2023
+[debug] [2023-03-03T02:04:14.240Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fems-social-network-2023:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-03-03T02:04:14.343Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-03-03T02:04:14.343Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2023-03-03T02:04:15.595Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/fems-social-network-2023:testIamPermissions 200
+[debug] [2023-03-03T02:04:15.595Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fems-social-network-2023:testIamPermissions {}
+[debug] [2023-03-03T02:04:15.595Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project fems-social-network-2023:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2023-03-03T02:04:15.596Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fems-social-network-2023 [none]
+[debug] [2023-03-03T02:04:16.510Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fems-social-network-2023 403
+[debug] [2023-03-03T02:04:16.510Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fems-social-network-2023 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2023-03-03T02:04:16.511Z] HTTP Error: 403, The caller does not have permission
+[debug] [2023-03-03T02:04:17.341Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\acast\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\acast\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project fems-social-network-2023. Please make sure the project exists and your account has permission to access it.
